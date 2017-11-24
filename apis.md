@@ -76,10 +76,39 @@
                 {
                   "script" : "ctx._source.age += 5"
                 }
-' 
+                ' 
   ```
-      
-
+  10. Deleting a document:
+      ```
+        * kibana console: DELETE /customer/doc/2?pretty
+        * curl: curl -XDELETE 'localhost:9200/customer/doc/2?pretty&pretty'
+      ```
+  11. Batch processing: Ability to index, update, and delete in batch:
+      ```
+      * Add:
+        * kibana console: POST /customer/doc/_bulk?pretty
+            {"index":{"_id":"1"}}
+            {"name": "John Doe" }
+            {"index":{"_id":"2"}}
+            {"name": "Jane Doe" }
+        * curl: 
+          curl -XPOST 'localhost:9200/customer/doc/_bulk?pretty&pretty' -H 'Content-Type: application/json' -d'
+            {"index":{"_id":"1"}}
+            {"name": "John Doe" }
+            {"index":{"_id":"2"}}
+            {"name": "Jane Doe" }
+            '
+       * Update:
+         * Kibana console: POST /customer/doc/_bulk?pretty
+            {"update":{"_id":"1"}}
+            {"doc": { "name": "John Doe becomes Jane Doe" } }
+            {"delete":{"_id":"2"}}
+         * curl: curl -XPOST 'localhost:9200/customer/doc/_bulk?pretty&pretty' -H 'Content-Type: application/json' -d'
+            {"update":{"_id":"1"}}
+            {"doc": { "name": "John Doe becomes Jane Doe" } }
+            {"delete":{"_id":"2"}}
+            '
+      ```
 
 
 
