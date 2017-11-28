@@ -29,3 +29,12 @@ A node can only join a cluster when it shares its cluster.name with all the othe
  cluster.name: logging-prod
  ```
  
+The following settings must be addressed before going to production:
+
+ * [Set JVM heap size](https://www.elastic.co/guide/en/elasticsearch/reference/current/heap-size.html)
+ * [Disable swapping](https://www.elastic.co/guide/en/elasticsearch/reference/current/setup-configuration-memory.html)
+ * [Increase file descriptors](https://www.elastic.co/guide/en/elasticsearch/reference/current/file-descriptors.html)
+ * [Ensure sufficient virtual memory](https://www.elastic.co/guide/en/elasticsearch/reference/current/vm-max-map-count.html)
+ * [Ensure sufficient threads](https://www.elastic.co/guide/en/elasticsearch/reference/current/max-number-of-threads.html)
+
+For more on above: https://www.elastic.co/guide/en/elasticsearch/reference/current/system-config.html
