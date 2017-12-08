@@ -39,3 +39,9 @@ The following settings must be addressed before going to production:
  * [Ensure sufficient threads](https://www.elastic.co/guide/en/elasticsearch/reference/current/max-number-of-threads.html)
 
 For more on above: https://www.elastic.co/guide/en/elasticsearch/reference/current/system-config.html
+
+Elasticsearch bootstrap checks upon startup: https://www.elastic.co/guide/en/elasticsearch/reference/current/bootstrap-checks.html
+
+### Important topics: 
+  * Upgrade elasticsearch: https://www.elastic.co/guide/en/elasticsearch/reference/current/setup-upgrade.html
+  * X-Pack is an Elastic Stack extension that bundles security, alerting, monitoring, reporting, machine learning, and graph capabilities into one easy-to-install package: https://www.elastic.co/guide/en/elasticsearch/reference/current/setup-xpack.html
