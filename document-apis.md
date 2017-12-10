@@ -1,4 +1,4 @@
-### Index apis (Reference: https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-index_.html)
+##### Index apis (Reference: https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-index_.html)
   * Add or update a typed JSON document in a specific index, making it searchable
     ```
       - curl: curl -XPUT 'localhost:9200/twitter/tweet/1?pretty' -H 'Content-Type: application/json' -d'
