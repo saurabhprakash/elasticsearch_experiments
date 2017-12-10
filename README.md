@@ -1,5 +1,7 @@
 Collection of commands and utilities for running/using elasticsearch
 
+Basic concepts: https://www.elastic.co/guide/en/elasticsearch/reference/current/_basic_concepts.html
+
 ### Major commands
   * Running elastic search as deamon: "./bin/elasticsearch -d -p pid"
   * Check elasticsearch running: "curl -XGET 'localhost:9200/?pretty'"
