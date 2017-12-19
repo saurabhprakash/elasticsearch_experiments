@@ -48,3 +48,20 @@
               "message" : "trying out Elasticsearch"
           } 
     ```
+  * Automatic id generation
+    ```
+      - curl: curl -XPOST 'localhost:9200/twitter/tweet/?pretty' -H 'Content-Type: application/json' -d'
+              {
+                  "user" : "kimchy",
+                  "post_date" : "2009-11-15T14:12:12",
+                  "message" : "trying out Elasticsearch"
+              }
+              '
+      - kibana console: 
+          POST twitter/tweet/
+          {
+              "user" : "kimchy",
+              "post_date" : "2009-11-15T14:12:12",
+              "message" : "trying out Elasticsearch"
+          }
+    ```
