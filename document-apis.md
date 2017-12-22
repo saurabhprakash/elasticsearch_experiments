@@ -74,3 +74,10 @@ Additional Parms which can be passed during this operation:
   * stored_fields: The get operation allows specifying a set of stored fields that will be returned by passing the stored_fields parameter. If the requested fields are not stored, they will be ignored. 
   * refresh: The refresh parameter can be set to true in order to refresh the relevant shard before the get operation and make it searchable. Setting it to true should be done after careful thought and verification that this does not cause a heavy load on the system (and slows down indexing).
   * version: You can use the version parameter to retrieve the document only if its current version is equal to the specified one. This behavior is the same for all version types with the exception of version type FORCE which always retrieves the document. Note that FORCE version type is deprecated.
+
+### Delete API (https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-delete.html)
+The delete API allows to delete a typed JSON document from a specific index based on its id. The following example deletes the JSON document from an index called twitter, under a type called tweet, with id valued 1
+
+### Delete by query (https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-delete-by-query.html)
+The simplest usage of _delete_by_query just performs a deletion on every document that match a query. It’s also possible to delete documents of multiple indexes and multiple types at once, just like the search API. In addition to the standard parameters like pretty, the Delete By Query API also supports refresh, wait_for_completion, wait_for_active_shards, and timeout. Sending the refresh will refresh all shards involved in the delete by query once the request completes. 
+
