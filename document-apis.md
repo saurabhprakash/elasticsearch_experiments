@@ -81,3 +81,7 @@ The delete API allows to delete a typed JSON document from a specific index base
 ### Delete by query (https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-delete-by-query.html)
 The simplest usage of _delete_by_query just performs a deletion on every document that match a query. It’s also possible to delete documents of multiple indexes and multiple types at once, just like the search API. In addition to the standard parameters like pretty, the Delete By Query API also supports refresh, wait_for_completion, wait_for_active_shards, and timeout. Sending the refresh will refresh all shards involved in the delete by query once the request completes. 
 
+### Update API
+The update API allows to update a document based on a script provided. The operation gets the document (collocated with the shard) from the index, runs the script (with optional script language and parameters), and index back the result (also allows to delete, or ignore the operation). It uses versioning to make sure no updates have happened during the "get" and "reindex".
+Upserts
+If the document does not already exist, the contents of the upsert element will be inserted as a new document. If the document does exist, then the script will be executed instead.
