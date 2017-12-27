@@ -47,3 +47,6 @@ Elasticsearch bootstrap checks upon startup: https://www.elastic.co/guide/en/ela
 ### Important topics: 
   * Upgrade elasticsearch: https://www.elastic.co/guide/en/elasticsearch/reference/current/setup-upgrade.html
   * X-Pack is an Elastic Stack extension that bundles security, alerting, monitoring, reporting, machine learning, and graph capabilities into one easy-to-install package: https://www.elastic.co/guide/en/elasticsearch/reference/current/setup-xpack.html
+
+
+### Important Note:Its not possible to create index of more than 1 type in elasticsearch version 6.x, reason explained in blog https://www.elastic.co/blog/index-type-parent-child-join-now-future-in-elasticsearch
