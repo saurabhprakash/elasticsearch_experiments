@@ -85,3 +85,35 @@ The simplest usage of _delete_by_query just performs a deletion on every documen
 The update API allows to update a document based on a script provided. The operation gets the document (collocated with the shard) from the index, runs the script (with optional script language and parameters), and index back the result (also allows to delete, or ignore the operation). It uses versioning to make sure no updates have happened during the "get" and "reindex".
 Upserts
 If the document does not already exist, the contents of the upsert element will be inserted as a new document. If the document does exist, then the script will be executed instead.
+
+ ```
+   Kibana console sample operations
+   Sample data for below operations
+      PUT test/type1/1
+      {
+          "counter" : 1,
+          "tags" : ["red", "blue"]
+      }
+ 
+   1. Update exiting field
+       POST test/type1/1/_update
+        {
+            "script" : {
+                "source": "ctx._source.counter += params.count",
+                "lang": "painless",
+                "params" : {
+                    "count" : 4
+                }
+            }
+        }
+   2. Add a new field
+        POST test/type1/1/_update
+        {
+            "script" : "ctx._source.new_field = 'value_of_new_field'"
+        }
+   3. Remove a field
+        POST test/type1/1/_update
+        {
+            "script" : "ctx._source.remove('new_field')"
+        }
+ ```
