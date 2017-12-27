@@ -27,6 +27,6 @@
     ```
 
 Note:
-    * The search’s max_concurrent_shard_requests request parameter can be used to control the maximum number of concurrent shard requests the search API will execute for this request.
-    * For understanding search request params: https://www.elastic.co/guide/en/elasticsearch/reference/current/search-uri-request.html
+  * The search’s max_concurrent_shard_requests request parameter can be used to control the maximum number of concurrent shard requests the search API will execute for this request.
+  * For understanding search request params: https://www.elastic.co/guide/en/elasticsearch/reference/current/search-uri-request.html
     
