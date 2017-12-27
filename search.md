@@ -21,3 +21,12 @@
     ```
       GET /_search?q=user:kimchy
     ```
+6. Using full URI
+    ```
+      GET twitter/tweet/_search?q=user:kimchy
+    ```
+
+Note:
+    * The search’s max_concurrent_shard_requests request parameter can be used to control the maximum number of concurrent shard requests the search API will execute for this request.
+    * For understanding search request params: https://www.elastic.co/guide/en/elasticsearch/reference/current/search-uri-request.html
+    
