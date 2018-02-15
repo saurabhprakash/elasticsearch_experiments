@@ -5,7 +5,7 @@
     ```
 2. Get all data of index
     ```
-    http://localhost:9200/foo/_search?pretty=true&q=*:*
+    http://localhost:9200/<index-name>/_search?pretty=true&q=*:*
 
         size defaults to 10, so you may also need &size=BIGNUMBER to get more than 10 items. (where BIGNUMBER equals a number you believe is bigger than your dataset)
 
@@ -13,7 +13,7 @@
 
         eg:
 
-        curl -XGET 'localhost:9200/foo/_search?search_type=scan&scroll=10m&size=50' -d '
+        curl -XGET 'localhost:9200/<index-name>/_search?search_type=scan&scroll=10m&size=50' -d '
         {
             "query" : {
                 "match_all" : {}
