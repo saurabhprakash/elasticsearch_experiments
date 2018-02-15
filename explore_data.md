@@ -3,6 +3,24 @@
     curl -H "Content-Type: application/json" -XPOST 'localhost:9200/bank/account/_bulk?pretty&refresh' --data-binary "@accounts.json"
     curl 'localhost:9200/_cat/indices?v'
     ```
+2. Get all data of index
+    ```
+    http://localhost:9200/foo/_search?pretty=true&q=*:*
+
+        size defaults to 10, so you may also need &size=BIGNUMBER to get more than 10 items. (where BIGNUMBER equals a number you believe is bigger than your dataset)
+
+        BUT, elasticsearch documentation suggests for large result sets, using the scan search type.
+
+        eg:
+
+        curl -XGET 'localhost:9200/foo/_search?search_type=scan&scroll=10m&size=50' -d '
+        {
+            "query" : {
+                "match_all" : {}
+            }
+        }'
+
+    ```
 2. Search - REST request URI
     ```
     kibana console: GET /bank/_search?q=*&sort=account_number:asc&pretty
