@@ -19,7 +19,24 @@
       * kibana console: "PUT /customer?pretty"
       * curl: curl -XPUT 'localhost:9200/customer?pretty&pretty'
   ```
-  5. Adding(Replacing) a document to index:
+  5. Get all index data:
+  ```
+    http://localhost:9200/<index-name>/_search?pretty=true&q=*:*
+
+    size defaults to 10, so you may also need &size=BIGNUMBER to get more than 10 items. (where BIGNUMBER equals a number you believe is bigger than your dataset)
+
+    BUT, elasticsearch documentation suggests for large result sets, using the scan search type.
+
+    eg:
+
+    curl -XGET 'localhost:9200/<index-name>/_search?search_type=scan&scroll=10m&size=50' -d '
+    {
+        "query" : {
+            "match_all" : {}
+        }
+    }'
+  ```
+  6. Adding(Replacing) a document to index:
   ```
       * kibana console: PUT /customer/doc/1?pretty
                           {
@@ -34,18 +51,18 @@
       * Note: It is important to note that Elasticsearch does not require you to explicitly create an index first before you can index documents into it. In the previous example, Elasticsearch will automatically create the customer index if it didn’t already exist beforehand
       * Same api is used to replacing the content of document if t
   ```
-  6. Retrieve that document:
+  7. Retrieve that document:
   ```
       * kibana console: GET /customer/doc/1?pretty
       * curl: curl -XGET 'localhost:9200/customer/doc/1?pretty&pretty'
   ```
-  7. Delete an index:
+  8. Delete an index:
   ```
       * kibana console: DELETE /customer?pretty
       * curl: curl -XDELETE 'localhost:9200/customer?pretty&pretty'
   ```
-  8. Pattern of most of apis: ```"REST Verb /Index/Type/ID"```
-  9. Updating documents: In step 5 replacing was remove and creating again a document, for updating a document in place, we can use following:
+  9. Pattern of most of apis: ```"REST Verb /Index/Type/ID"```
+  10. Updating documents: In step 5 replacing was remove and creating again a document, for updating a document in place, we can use following:
   ```
     * Normal exiting key updates:
         * kibana console: POST /customer/doc/1/_update?pretty
@@ -78,12 +95,12 @@
                 }
                 ' 
   ```
-  10. Deleting a document:
+  11. Deleting a document:
       ```
         * kibana console: DELETE /customer/doc/2?pretty
         * curl: curl -XDELETE 'localhost:9200/customer/doc/2?pretty&pretty'
       ```
-  11. Batch processing: Ability to index, update, and delete in batch:
+  12. Batch processing: Ability to index, update, and delete in batch:
       ```
       * Add:
         * kibana console: POST /customer/doc/_bulk?pretty
