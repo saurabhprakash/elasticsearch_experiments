@@ -50,3 +50,11 @@ Elasticsearch bootstrap checks upon startup: https://www.elastic.co/guide/en/ela
 
 
 ### Important Note:Its not possible to create index of more than 1 type in elasticsearch version 6.x, reason explained in blog https://www.elastic.co/blog/index-type-parent-child-join-now-future-in-elasticsearch
+
+
+Important Query readings:
+ - Term Query: https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-term-query.html
+ - Range Query: http://nocf-www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-range-query.html
+ - Match Query: http://nocf-www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-match-query.html
+ - Full text Queries: http://nocf-www.elastic.co/guide/en/elasticsearch/reference/current/full-text-queries.html
+ - Finding multiple exact value: https://www.elastic.co/guide/en/elasticsearch/guide/current/_finding_multiple_exact_values.html
