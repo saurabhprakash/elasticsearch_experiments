@@ -47,7 +47,7 @@
      ```
    - To get count only
      ```
-        curl -XGET 'localhost:9200/cstore/_count?pretty' -H 'Content-Type: application/json' -d'
+        curl -XGET 'localhost:9200/<index-name>/_count?pretty' -H 'Content-Type: application/json' -d'
         {
             "query": {
                 "constant_score" : {
