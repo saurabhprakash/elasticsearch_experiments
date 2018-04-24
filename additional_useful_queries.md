@@ -28,7 +28,7 @@
      ```
    - Above query with only lets say specific fields required in output(Note the _source key)
      ```
-        curl -XGET 'localhost:9200/cstore/_search?pretty' -H 'Content-Type: application/json' -d'
+        curl -XGET 'localhost:9200/<index-name>/_search?pretty' -H 'Content-Type: application/json' -d'
         {
             "_source": ["field name 1", "field name 2"],
             "query": {
