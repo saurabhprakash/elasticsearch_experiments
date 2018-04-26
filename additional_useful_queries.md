@@ -63,3 +63,26 @@
             }
         }'
      ```
+   - For error "Fielddata is disabled on text fields by default" (More read on this: https://www.elastic.co/guide/en/elasticsearch/reference/current/fielddata.html#_fielddata_is_disabled_on_literal_text_literal_fields_by_default)
+     ```
+        curl request: curl -XPUT "http://localhost:9200/<index name>/_mapping/<document type name>" -H 'Content-Type: application/json' -d'
+              {
+                "properties": {
+                  "<field name>": { 
+                    "type":     "text",
+                    "fielddata": true
+                  }
+                }
+              }'
+              
+         kibana: 
+         PUT <index name>/_mapping/<document type name>
+         {
+           "properties": {
+             "<field name>": { 
+               "type":     "text",
+               "fielddata": true
+             }
+           }
+         }
+     ```
