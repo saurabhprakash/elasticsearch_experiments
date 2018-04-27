@@ -1,7 +1,7 @@
 
  - Single field exact query: 
     ```
-        curl -XGET "http://localhost:9200/<index name>/_search" -H 'Content-Type: application/json' -d'
+        curl -XGET "http://localhost:9200/<index name>/_search?pretty" -H 'Content-Type: application/json' -d'
         {
             "query" : {
                 "term" : { "<field name>" : "<value>"}
@@ -85,4 +85,34 @@
              }
            }
          }
+     ```
+   - Getting all the distinct values for a given field in an index:
+     ```
+          kibana console:
+             GET cstore_small/_search
+             {
+               "size": 0,
+               "aggs": {
+                 "distinct_CSPAccountNo": {
+                   "terms": {
+                     "field": "CSPAccountNo",
+                     "size": 1000
+                   }
+                 }
+               }
+             }
+          
+          curl request:
+              curl -XGET "http://localhost:9200/<index name>/_search" -H 'Content-Type: application/json' -d'
+              {
+                "size": 0,
+                "aggs": {
+                  "distinct_<field_name>": {
+                    "terms": {
+                      "field": "<field_name>",
+                      "size": 1000
+                    }
+                  }
+                }
+              }'
      ```
