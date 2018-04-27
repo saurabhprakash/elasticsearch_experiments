@@ -116,3 +116,21 @@
                 }
               }'
      ```
+  - Remove default fields returned by elasticsearch
+     ```
+       curl -XGET 'localhost:9200/<index_name>/_search?pretty&filter_path=hits.hits._source' -H 'Content-Type: application/json' -d'
+       {
+           "_source": [<"field_names">],
+           "query": {
+               "constant_score" : {
+                   "filter" : {
+                       "bool" : {
+                           "must" : [
+                               { "term" : { <field_name_to_query> : <value_to_query> } }
+                           ]
+                       }
+                   }
+               }
+           }
+       }'
+     ```
