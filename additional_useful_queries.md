@@ -134,3 +134,8 @@
            }
        }'
      ```
+     
+  - Max results return by ES is by default 10000, to increase that use this command:
+  ```
+  curl -XPUT "http://localhost:9200/<index_name>/_settings"  -H 'Content-Type: application/json' -d '{ "index" : { "max_result_window" : <INT size to return> } }'
+  ```
