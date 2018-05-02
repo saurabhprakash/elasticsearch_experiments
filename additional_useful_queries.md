@@ -1,7 +1,8 @@
 
  - Single field exact query: 
     ```
-        curl -XGET "http://localhost:9200/<index name>/_search?pretty" -H 'Content-Type: application/json' -d'
+        curl -XGET "http://localhost:9
+        200/<index name>/_search?pretty" -H 'Content-Type: application/json' -d'
         {
             "query" : {
                 "term" : { "<field name>" : "<value>"}
@@ -89,7 +90,7 @@
    - Getting all the distinct values for a given field in an index:
      ```
           kibana console:
-             GET cstore_small/_search
+             GET <index_name>/_search
              {
                "size": 0,
                "aggs": {
