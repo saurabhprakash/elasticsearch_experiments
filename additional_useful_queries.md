@@ -140,3 +140,30 @@
   ```
   curl -XPUT "http://localhost:9200/<index_name>/_settings"  -H 'Content-Type: application/json' -d '{ "index" : { "max_result_window" : <INT size to return> } }'
   ```
+
+  - Use query results for aggregrations: An e.g. where query results are being used to fetch distinct data:
+    ```
+         curl -XGET "http://localhost:9200/<index-name>/_search?pretty" -H 'Content-Type: application/json' -d'
+            {
+                "query": {
+                    "constant_score" : {
+                        "filter" : {
+                            "bool" : {
+                                "must_not" : [
+                                    { "term" : { "<field-key>" : "<field-value>" } }
+                                ]
+                            }
+                        }
+                    }
+                },
+                "size": 0,
+                "aggs": {
+                    "distinct_POSCode": {
+                        "terms": {
+                            "field": "<field-key>",
+                            "size": <INT max result to return>
+                        }
+                    }
+                }
+            }'
+    ```
