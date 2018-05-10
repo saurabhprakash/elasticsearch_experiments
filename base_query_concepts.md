@@ -46,3 +46,8 @@
                 {"name": "desc"},
                 "_score"
         ] }'
+
+##### Understanding the structure of a response
+![image](https://user-images.githubusercontent.com/1115900/39866541-b90aa382-546e-11e8-8530-71745a887e77.png)
+
+
