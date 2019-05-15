@@ -58,3 +58,5 @@ Important Query readings:
  - Match Query: http://nocf-www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-match-query.html
  - Full text Queries: http://nocf-www.elastic.co/guide/en/elasticsearch/reference/current/full-text-queries.html
  - Finding multiple exact value: https://www.elastic.co/guide/en/elasticsearch/guide/current/_finding_multiple_exact_values.html
+ 
+User and security apis: https://www.elastic.co/guide/en/elasticsearch/reference/6.2/security-api-users.html
