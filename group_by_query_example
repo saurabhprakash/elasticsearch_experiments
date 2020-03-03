@@ -1,0 +1,46 @@
+
+Sample 1: 
+
+
+curl --location --request POST 'http://localhost:9200/ib/_search' \
+--header 'Content-Type: application/json' \
+--header 'Postman-Token: 2abbab04-d9f5-4620-8406-a595655a95b3' \
+--header 'cache-control: no-cache' \
+--data-raw '{
+    "query": {
+        "bool": {
+            "must": [
+                {
+                    "range": {
+                        "<field name>": {
+                            "gte": "<field value 1>",
+                            "lte": "<field value 2>"
+                        }
+                    }
+                },
+                {
+                    "match": {
+                        "<field name>": "<field value>"
+                    }
+                },
+                {
+                    "range": {
+                        "<field name>": {
+                            "gte": "<field value>",
+                            "lte": "<field value>"
+                        }
+                    }
+                }
+            ]
+        }
+    },
+    "aggs": {
+        "group_by_name": {
+            "terms": {
+                "field": "<field name>.keyword",
+                "size": 5
+            }
+        }
+    },
+    "size": 0
+}'
